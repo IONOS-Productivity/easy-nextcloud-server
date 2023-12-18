@@ -40,6 +40,8 @@ function main() {
 	ooc theming:config disable-user-theming yes
 	ooc config:app:set theming backgroundMime --value backgroundColor
 
+	ooc config:system:set --value GTM-KMC6FKTK enc_analytics_tracking_key
+
 	echo "reconfig mimetype images"
 	ooc maintenance:mimetype:update-js
 
