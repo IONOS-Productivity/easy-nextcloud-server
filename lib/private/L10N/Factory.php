@@ -624,6 +624,10 @@ class Factory implements IFactory {
 		}
 
 		$languageCodes = $this->findAvailableLanguages();
+		$availableRestrictedLanguages = $this->config->getSystemValue('available_languages_restrict_to', []);
+		if (!empty($availableRestrictedLanguages)) {
+			$languageCodes = array_intersect($languageCodes, $availableRestrictedLanguages);
+		}
 
 		$commonLanguages = [];
 		$otherLanguages = [];
