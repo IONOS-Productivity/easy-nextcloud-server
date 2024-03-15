@@ -657,6 +657,15 @@
 			});
 
 			this.registerAction({
+				name: 'view',
+				mime: 'all',
+				permissions: OC.PERMISSION_UPDATE,
+				actionHandler: function (filename, context) {
+					console.log("View file: " + filename);
+				}
+			});
+
+			this.registerAction({
 				name: 'Rename',
 				displayName: t('files', 'Rename'),
 				mime: 'all',
@@ -813,6 +822,7 @@
 			});
 
 			this.setDefault('dir', 'Open');
+			this.setDefault('all', 'view');
 		}
 	};
 
