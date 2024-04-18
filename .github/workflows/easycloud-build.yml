@@ -1,5 +1,8 @@
 name: EasyCloud Build
 
+# Review: please add some documentation comments 
+# explaining what's the output and why we do it this way
+
 on:
   pull_request:
     paths:
@@ -44,6 +47,9 @@ jobs:
           submodules: true
 
       - name: Zip dependencies
+        # Review:
+        # * -x *.github/* is not necessary as it nor the root is included anyway
+        # * let's multiline the list of files passed to zip
         run: |
           buildDate=$(date +%s)
           buildRef=${{ github.sha }}
@@ -74,6 +80,7 @@ jobs:
           images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
 
       - name: Create Dockerfile
+        # Review: why cat into a variable via sub-shell, not redirect?
         run: |
           DOCKER_BUILD_FILE=$(cat << EOF
           FROM busybox as builder
