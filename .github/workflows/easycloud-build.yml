@@ -1,5 +1,9 @@
 name: EasyCloud Build
 
+# The EasyCloud source is packaged as a container image.
+# This is a workaround because releases can not be created without tags 
+# and we want to be able to create snapshots from branches.
+
 on:
   pull_request:
     paths:
