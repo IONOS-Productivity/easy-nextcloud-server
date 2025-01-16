@@ -216,7 +216,7 @@ class SetConfig extends Base {
 					"<info>Config value '%s' for app '%s' is now set to '%s', stored as %s in %s</info>",
 					$configName,
 					$appName,
-					$current['value'],
+					$current['sensitive'] ? '<sensitive>' : $current['value'],
 					$current['typeString'],
 					$current['lazy'] ? 'lazy cache' : 'fast cache'
 				)
