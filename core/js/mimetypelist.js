@@ -150,5 +150,7 @@ OC.MimeTypeList={
     "x-office-presentation",
     "x-office-spreadsheet"
 ],
-	themes: []
+	themes: {
+        'nc-ionos-theme': ["folder"],
+    }
 };
